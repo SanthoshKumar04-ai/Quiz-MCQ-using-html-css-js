@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is CSS?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="quiz active" id="question1">
+        <div class="container">
+            <div class="heading">
+                <h1>What is CSS?</h1>
+            </div>
+            <div class="option">
+                <ul>
+                    <div class="list">
+                        <li onclick="selectOption(this)" class="answer"><span class="true">A</span>Cascading Style
+                            Sheets</li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">B</span>Colorful Style Sheets
+                        </li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">C</span>Command Style Sheets
+                        </li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">D</span>Controlled Style
+                            Sheet</li>
+                    </div>
+                </ul>
+            </div>
+            <button onclick="submitAnswer(this)">Submit</button>
+            <button onclick="nextQuestion(2)">Next</button>
+        </div>
+    </div>
+
+    <div class="quiz" id="question2">
+        <div class="container">
+            <div class="heading">
+                <h1>What is HTML?</h1>
+            </div>
+            <div class="option">
+                <ul>
+                    <div class="list">
+                        <li onclick="selectOption(this)" class="answer"><span class="true">A</span>HyperText Markup
+                            Language</li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">B</span>HighText Machine
+                            Language</li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">C</span>Hyperlink and Text
+                            Markup Language</li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">D</span>Home Tool Markup
+                            Language</li>
+                    </div>
+                </ul>
+            </div>
+            <button onclick="submitAnswer(this)">Submit</button>
+            <button onclick="nextQuestion(3)">Next</button>
+        </div>
+    </div>
+
+    <div class="quiz" id="question3">
+        <div class="container">
+            <div class="heading">
+                <h1>What is JavaScript?</h1>
+            </div>
+            <div class="option">
+                <ul>
+                    <div class="list">
+                        <li onclick="selectOption(this)" class="answer"><span class="true">A</span>A programming
+                            language</li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">B</span>A scripting language
+                        </li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">C</span>A style sheet
+                            language</li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">D</span>A markup language
+                        </li>
+                    </div>
+                </ul>
+            </div>
+            <button onclick="submitAnswer(this)">Submit</button>
+            <button onclick="nextQuestion(4)">Next</button>
+        </div>
+    </div>
+
+    <div class="quiz" id="question4">
+        <div class="container">
+            <div class="heading">
+                <h1>What is Python?</h1>
+            </div>
+            <div class="option">
+                <ul>
+                    <div class="list">
+                        <li onclick="selectOption(this)" class="answer"><span class="true">A</span>A programming
+                            language</li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">B</span>A type of snake</li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">C</span>A kind of food</li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">D</span>A comic book
+                            character</li>
+                    </div>
+                </ul>
+            </div>
+            <button onclick="submitAnswer(this)">Submit</button>
+            <button onclick="nextQuestion(5)">Next</button>
+        </div>
+    </div>
+
+    <div class="quiz" id="question5">
+        <div class="container">
+            <div class="heading">
+                <h1>What is SQL?</h1>
+            </div>
+            <div class="option">
+                <ul>
+                    <div class="list">
+                        <li onclick="selectOption(this)" class="answer"><span class="true">A</span>Structured Query
+                            Language</li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">B</span>Strong Question
+                            Language</li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">C</span>Stylish Question
+                            Language</li>
+                        <li onclick="selectOption(this)" class="wrong"><span class="false">D</span>Statement Question
+                            Language</li>
+                    </div>
+                </ul>
+            </div>
+            <button onclick="submitAnswer(this)">Submit</button>
+            <button onclick="finishQuiz()">Finish</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedOption = null;
+
+        function selectOption(element) {
+            if (selectedOption) {
+                selectedOption.classList.remove('selected');
+            }
+            selectedOption = element;
+            element.classList.add('selected');
+        }
+
+        function submitAnswer(button) {
+            if (!selectedOption) {
+                alert("Please select an option before submitting.");
+                return;
+            }
+
+            if (selectedOption.classList.contains("answer")) {
+                selectedOption.classList.add("correct");
+            } else {
+                selectedOption.classList.add("incorrect");
+            }
+            button.disabled = true;
+            selectedOption = null;
+        }
+
+        function nextQuestion(nextQuestionId) {
+            let currentQuestion = document.querySelector('.quiz.active');
+            currentQuestion.classList.remove('active');
+            document.getElementById('question' + nextQuestionId).classList.add('active');
+        }
+
+        function finishQuiz() {
+            alert("You have successfully completed the quiz!");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.quiz {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.heading {
+    margin-bottom: 20px;
+}
+
+.option ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.option li {
+    background-color: rgb(177, 232, 240);
+    color: black;
+    cursor: pointer;
+    margin-bottom: 5px;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.option li span {
+    background-color: rgb(122, 230, 247);
+    padding: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.option li.selected {
+    background-color: rgb(100, 181, 246);
+    color: white;
+}
+
+.option li.selected span {
+    background-color: rgb(24, 144, 255);
+}
+
+.option li.correct {
+    background-color: green;
+    color: white;
+}
+
+.option li.correct span {
+    background-color: green;
+}
+
+.option li.incorrect {
+    background-color: red;
+    color: white;
+}
+
+.option li.incorrect span {
+    background-color: red;
+}
+
+button {
+    margin: 10px 5px 0 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
